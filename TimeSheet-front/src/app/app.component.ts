@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TimeSheet-front';
+
+  constructor(private toastr: ToastrService) { }
+
+  ngOnInit() {
+      
+  }
+ 
+  showToaster(){
+      this.toastr.success("Hello, I'm the toastr message.")
+  }
 }

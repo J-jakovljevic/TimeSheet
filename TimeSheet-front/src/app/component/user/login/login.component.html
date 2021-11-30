@@ -1,0 +1,34 @@
+<div class="page">
+
+    
+    <h2 class="mrg" style="color:grey">Welcome back</h2>
+    <div class="form">
+        
+      <form class="ngform" #loginform = "ngForm">    
+        
+        
+        <img src="assets/images/logo.png" width="200" height="80" alt="">
+        
+           
+            <input type="text" [(ngModel)]="user.username" placeholder="Enter username/email" name="username" required
+            #username="ngModel" [class.is-invalid] = "username.invalid && username.touched">
+            <div *ngIf="username.invalid && username.touched"> 
+                <small class="text-danger">Username is required field.</small>
+            </div>
+        
+        <br>
+
+        <input type="password" [(ngModel)]="user.password" placeholder="Enter password"  name="password" required #password="ngModel"
+        [class.is-invalid] = "password.invalid && password.touched">
+        <div *ngIf="password.invalid && password.touched"> 
+          <small class="text-danger">Password is required field.</small>
+        </div>
+
+        <br><br>
+
+        <button [disabled]="loginform.form.invalid" (click)="login()" class="button">Log In</button> <!--[disabled]="loginform.form.invalid"-->
+        </form>
+    </div>
+  </div>
+  
+  
