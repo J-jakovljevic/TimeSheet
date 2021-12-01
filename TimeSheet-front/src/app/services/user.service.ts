@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LoginUser } from 'src/model/user-model';
+import { LoginUser, RegisterUser } from 'src/model/user-model';
 import { LOGIN_PATH } from '../util/path';
+import { REGISTRATION_PATH } from '../util/path';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,13 @@ export class UserService {
     return !(user == null)
   }
 
+  registration(user: RegisterUser): any {
+    return this.httpClient.post(REGISTRATION_PATH, user);
+  }
+
   logOut(){
     sessionStorage.removeItem('user');
-    sessionStorage.removeItem('role');
+  //  sessionStorage.removeItem('role');
   }
 
 }

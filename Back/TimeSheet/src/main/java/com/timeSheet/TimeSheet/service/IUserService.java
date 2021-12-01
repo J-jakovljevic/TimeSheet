@@ -10,5 +10,8 @@ public interface IUserService {
 	ResponseEntity<UserDTO> login(LoginDTO loginDTO);
 	List<User> findAll();
 	User findById(Long id);
+	User findByEmail(String email);
+	UserDTO register(UserDTO userDTO) throws Exception;
+	
 
 }

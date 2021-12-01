@@ -30,7 +30,7 @@ public class UserDTO {
 
 	private String password;
 	
-//	private Set<Role> roles = new HashSet<Role>();
+	private Set<Role> roles = new HashSet<Role>();
 	
 	public UserDTO(User user) {
 		super();

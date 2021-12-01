@@ -31,6 +31,11 @@ public class UserService  implements IUserService  {
 	}
 	
 	@Override
+	public User findByEmail(String email) {
+		return userRepository.findByEmail(email).orElse(null);
+	}
+	
+	@Override
 	public ResponseEntity<UserDTO> login(LoginDTO loginDTO) {
 		List<User> users = userRepository.findAll();
 		for(User user : users) {
@@ -51,4 +56,15 @@ public class UserService  implements IUserService  {
 		}
 		return new ResponseEntity<UserDTO>(HttpStatus.BAD_REQUEST);
 		}
+
+	@Override
+	public UserDTO register(UserDTO userDTO) throws Exception {
+		if(userRepository.findByEmail(userDTO.getEmail()).orElse(null) == null) {
+			
+			User user = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getUsername(), userDTO.getEmail(), userDTO.getPassword());
+			user = this.userRepository.save(user);
+			return new UserDTO(user);
+		}
+		return null;
+	}
 }

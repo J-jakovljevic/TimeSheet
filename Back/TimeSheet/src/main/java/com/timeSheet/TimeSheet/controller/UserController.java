@@ -43,4 +43,14 @@ public class UserController {
 	public ResponseEntity<UserDTO> login(@RequestBody LoginDTO loginDTO) throws Exception{
 		return userService.login(loginDTO);
 	}
-}
+	
+	@PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) throws Exception 
+		{
+			UserDTO registeredUser = userService.register(userDTO);
+			if(registeredUser == null) {
+				return new ResponseEntity<UserDTO>(HttpStatus.BAD_REQUEST);
+			}
+			return new ResponseEntity<UserDTO>(registeredUser, HttpStatus.OK);
+		}
+	}
