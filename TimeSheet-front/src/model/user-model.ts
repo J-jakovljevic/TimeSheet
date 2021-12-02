@@ -1,3 +1,4 @@
+
 export interface User {
     id: number;
     name: string;
@@ -5,7 +6,6 @@ export interface User {
     username: string;
     email: string;
     password: string;
-    confirmPassword: string;
     active: boolean;
 }
 
@@ -20,6 +20,11 @@ export interface RegisterUser {
     surname: string;
     username: string;
     email: string;
+    password: string;
+    confirmPassword: string;
+}
+
+export interface ChangePassword {
     password: string;
     confirmPassword: string;
 }

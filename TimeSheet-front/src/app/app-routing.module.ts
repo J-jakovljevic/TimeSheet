@@ -4,6 +4,7 @@ import { LoginComponent } from './component/user/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './component/home/home.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const routes: Routes = [
   {path: '404', component: NotFoundComponent},
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   {path: 'home', component: HomeComponent},
+  {path: 'change-password', component: ChangePasswordComponent}
   
 ];
 

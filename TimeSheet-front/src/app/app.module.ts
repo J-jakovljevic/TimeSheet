@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistrationComponent } from './registration/registration.component';
     HomeComponent,
     NavbarComponent,
     NotFoundComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

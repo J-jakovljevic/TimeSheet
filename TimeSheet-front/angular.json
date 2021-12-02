@@ -91,6 +91,7 @@
             "browserTarget": "TimeSheet-front:build"
           }
         },
+        
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

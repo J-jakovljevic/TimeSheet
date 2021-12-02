@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { LoginUser, RegisterUser } from 'src/model/user-model';
-import { LOGIN_PATH } from '../util/path';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ChangePassword, LoginUser, RegisterUser } from 'src/model/user-model';
+import { LOGIN_PATH, PASSWORD_USER_PATH } from '../util/path';
 import { REGISTRATION_PATH } from '../util/path';
 
 @Injectable({
@@ -28,5 +28,10 @@ export class UserService {
     sessionStorage.removeItem('user');
   //  sessionStorage.removeItem('role');
   }
+
+  changePassword(user: ChangePassword): any{
+    return this.httpClient.put(PASSWORD_USER_PATH, user);
+  }
+  
 
 }
