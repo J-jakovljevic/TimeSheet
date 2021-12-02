@@ -32,11 +32,11 @@
         </div>
 
         <div class="c1">
-            <input type="email" [(ngModel)]="user.email" placeholder="Enter email" name="email" pattern = "^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required #email="ngModel"
-            [class.is-invalid] = "email.invalid && email.touched">
+            <input type="text" class="form-control"  placeholder="Enter email" #email="ngModel" name="email" [(ngModel)]="user.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" 
+             required email [class.is-invalid] = "username.invalid && username.touched"> 
             <div *ngIf="email.invalid && email.touched">
                 <small class="text-danger">Email is required field.</small>
-           <!--]     <small class="text-danger" *ngIf = "email.errors.(pattern)">Enter valid email.</small>-->
+                <small class="text-danger" *ngIf = "email.errors">Enter valid email.</small>
             </div>
         </div>
 
