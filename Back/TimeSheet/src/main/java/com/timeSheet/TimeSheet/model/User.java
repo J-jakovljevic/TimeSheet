@@ -24,10 +24,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class User {
 
-	
-
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -50,13 +46,15 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private Set<Role> roles = new HashSet<Role>();
     
-    public User(String name, String surname, String username, String email, String password) {
+    public User(String name, String surname, String username, String email, String password, Role role) {
 		this.name = name;
 		this.surname = surname;
 		this.username = username;
 		this.email = email;
 		this.password = password;
-	//	this.roles = roles;
+		this.roles.add(role);
 	}
+
+
 	
 }

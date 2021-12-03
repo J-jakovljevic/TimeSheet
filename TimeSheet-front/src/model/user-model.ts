@@ -25,6 +25,7 @@ export interface RegisterUser {
 }
 
 export interface ChangePassword {
-    password: string;
+    email: any;
+    newPassword: string;
     confirmPassword: string;
 }

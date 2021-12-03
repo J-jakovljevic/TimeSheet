@@ -2,7 +2,6 @@ package com.timeSheet.TimeSheet.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,16 +9,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.timeSheet.TimeSheet.dto.LoginDTO;
+import com.timeSheet.TimeSheet.dto.PasswordChangeDTO;
 import com.timeSheet.TimeSheet.dto.UserDTO;
 import com.timeSheet.TimeSheet.model.User;
 import com.timeSheet.TimeSheet.service.IUserService;
-import com.timeSheet.TimeSheet.service.UserService;
 
+@ResponseBody
 @RestController
 @RequestMapping(value = "api/user")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -53,4 +54,9 @@ public class UserController {
 			}
 			return new ResponseEntity<UserDTO>(registeredUser, HttpStatus.OK);
 		}
-	}
+	
+	 @PutMapping(value = "/change-password")
+	    public User changePassword(@RequestBody PasswordChangeDTO passwordDTO){
+	        return userService.changePassword(passwordDTO);
+	    }
+}

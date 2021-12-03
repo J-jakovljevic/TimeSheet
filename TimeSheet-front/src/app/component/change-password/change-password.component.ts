@@ -14,22 +14,23 @@ export class ChangePasswordComponent {
 
   user: any;
   returnedUser: any;
-  changePassword: boolean = false;
 
   constructor(private userService: UserService, private router: Router, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.returnedUser = { password: '', confirmPassword: '' };
+   
+    this.returnedUser = { newPassword: '', confirmPassword: '', email: sessionStorage.getItem('user') };
   }
 
   savePassword():void{
-    this.userService.changePassword(this.returnedUser).subscribe((returnedUser: User) => {
-      this.changePassword = false;
-      sessionStorage.setItem('user', this.user.email);
+    console.log(sessionStorage.getItem('user'));
+    this.userService.changePassword(this.returnedUser).subscribe(() => {
+      sessionStorage.setItem('user', this.user?.email);
       this.router.navigate(['/home']);
       this.toastrService.success("Password changed successfully");
+      
     },
     (err: any) => {
-      this.toastrService.error(err.error.message)
+      this.toastrService.error('Changing password error ' + err.error.message);
     });
   }}

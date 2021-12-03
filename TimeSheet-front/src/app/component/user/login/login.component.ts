@@ -12,8 +12,7 @@ import { User } from 'src/model/user-model';
 export class LoginComponent implements OnInit {
 
   user: any;
-  password: any;
-
+  
   constructor(private userService: UserService, private router: Router,  private toastrService: ToastrService) { }
 
   ngOnInit(): void {
@@ -22,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.userService.login(this.user).subscribe((response: User) => {
-      sessionStorage.setItem('user', this.user.email);
+    this.userService.login(this.user).subscribe(() => {
+      sessionStorage.setItem('user', this.user.username);
       this.router.navigate(['/home']);
       this.toastrService.success("User logged in successfully!")
     },

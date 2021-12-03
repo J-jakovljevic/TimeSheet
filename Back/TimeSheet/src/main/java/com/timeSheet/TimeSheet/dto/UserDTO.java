@@ -40,6 +40,6 @@ public class UserDTO {
 		this.email = user.getEmail();
 		this.username = user.getUsername();
 		this.password = user.getPassword();
-	//	this.roles = user.getRoles();
+		this.roles = user.getRoles();
 	}
 }
