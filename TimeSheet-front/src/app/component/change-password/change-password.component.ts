@@ -23,7 +23,6 @@ export class ChangePasswordComponent {
   }
 
   savePassword():void{
-    console.log(sessionStorage.getItem('user'));
     this.userService.changePassword(this.returnedUser).subscribe(() => {
       sessionStorage.setItem('user', this.user?.email);
       this.router.navigate(['/home']);
