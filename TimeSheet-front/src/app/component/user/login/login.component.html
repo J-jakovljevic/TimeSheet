@@ -11,7 +11,7 @@
             <input type="text" [(ngModel)]="user.username" placeholder="Enter username/email" name="username" required
             #username="ngModel" [class.is-invalid] = "username.invalid && username.touched">
             <div *ngIf="username.invalid && username.touched"> 
-                <small class="text-danger">Username is required field.</small>
+                <small class="text-danger">Username/email is required field.</small>
             </div>
         </div>
         <br>

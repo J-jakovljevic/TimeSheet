@@ -1,20 +1,17 @@
 package com.timeSheet.TimeSheet.service;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import com.timeSheet.TimeSheet.controller.AlreadyExistsException;
 import com.timeSheet.TimeSheet.dto.LoginDTO;
 import com.timeSheet.TimeSheet.dto.PasswordChangeDTO;
 import com.timeSheet.TimeSheet.dto.UserDTO;
-import com.timeSheet.TimeSheet.model.Role;
 import com.timeSheet.TimeSheet.model.User;
 import com.timeSheet.TimeSheet.repository.RoleRepository;
 import com.timeSheet.TimeSheet.repository.UserRepository;
-import com.timeSheet.exception.InvalidActionException;
+import com.timeSheet.exception.AlreadyExistsException;
 import com.timeSheet.exception.NotFoundException;
 
 @Service
@@ -86,11 +83,30 @@ public class UserService  implements IUserService  {
 	}
 	
 	@Override
-	 public User changePassword(PasswordChangeDTO passwordDTO){
-	        User user = findByEmail(passwordDTO.getEmail());
-	        if(!passwordDTO.getNewPassword().equals(passwordDTO.getConfirmPassword()))
-	            throw new InvalidActionException("Passwords are not equal");
-	        user.setPassword(passwordDTO.getNewPassword());
-	        return userRepository.save(user);
-	    }
+	public ResponseEntity<User> changePassword(PasswordChangeDTO passwordChangedDTO) {
+		List<User> users = userRepository.findAll();
+		for(User user : users) {
+		  
+			if(passwordChangedDTO.getEmail().contains("@")) {
+				if(user.getEmail().equals(passwordChangedDTO.getEmail())) {
+					if(passwordChangedDTO.getNewPassword().equals(passwordChangedDTO.getConfirmPassword())) {
+						user.setPassword(passwordChangedDTO.getNewPassword());
+						userRepository.save(user);
+						return new ResponseEntity<User>(user,HttpStatus.OK);
+					}
+				}
+			}
+			else {
+				if(user.getUsername().equals(passwordChangedDTO.getEmail())) {
+					if(passwordChangedDTO.getNewPassword().equals(passwordChangedDTO.getConfirmPassword())) {
+						user.setPassword(passwordChangedDTO.getNewPassword());
+						 userRepository.save(user);
+						return new ResponseEntity<User>(user,HttpStatus.OK);
+					}
+				}
+			}
+		}
+		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+		}
+
 }

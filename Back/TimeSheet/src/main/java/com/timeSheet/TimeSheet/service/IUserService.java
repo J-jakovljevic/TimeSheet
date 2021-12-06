@@ -13,7 +13,7 @@ public interface IUserService {
 	User findById(Long id);
 	User findByEmail(String email);
 	UserDTO register(UserDTO userDTO) throws Exception;
-	User changePassword(PasswordChangeDTO passwordDTO);
+	ResponseEntity<User> changePassword(PasswordChangeDTO passwordChangedDTO);
 	
 
 }

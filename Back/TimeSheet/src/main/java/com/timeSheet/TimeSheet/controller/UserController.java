@@ -56,7 +56,7 @@ public class UserController {
 		}
 	
 	 @PutMapping(value = "/change-password")
-	    public User changePassword(@RequestBody PasswordChangeDTO passwordDTO){
-	        return userService.changePassword(passwordDTO);
-	    }
+		public ResponseEntity<User> changePassword(@RequestBody PasswordChangeDTO passwordChangedDTO) throws Exception{
+			return userService.changePassword(passwordChangedDTO);
+		}
 }
