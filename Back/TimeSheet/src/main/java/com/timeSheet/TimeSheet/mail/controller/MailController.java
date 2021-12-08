@@ -2,6 +2,7 @@ package com.timeSheet.TimeSheet.mail.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class MailController {
 		this.emailService = emailService;
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/email-sent", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public boolean requestAbsence(@RequestBody MailDTO emailDTO) throws Exception{
 		Mail mail = new Mail(emailDTO);

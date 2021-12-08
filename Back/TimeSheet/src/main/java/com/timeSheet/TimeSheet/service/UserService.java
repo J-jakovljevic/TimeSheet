@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.timeSheet.TimeSheet.dto.LoginDTO;
 import com.timeSheet.TimeSheet.dto.PasswordChangeDTO;
 import com.timeSheet.TimeSheet.dto.UserDTO;
+import com.timeSheet.TimeSheet.mail.model.Mail;
 import com.timeSheet.TimeSheet.model.User;
 import com.timeSheet.TimeSheet.repository.RoleRepository;
 import com.timeSheet.TimeSheet.repository.UserRepository;
@@ -108,5 +109,9 @@ public class UserService  implements IUserService  {
 		}
 		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 		}
+
+
+
+
 
 }

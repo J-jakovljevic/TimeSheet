@@ -40,6 +40,7 @@ public class UserController {
 		return new ResponseEntity<List<UserDTO>>(userListDTO, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/login-user", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserDTO> login(@RequestBody LoginDTO loginDTO) throws Exception{
 		return userService.login(loginDTO);

@@ -25,9 +25,14 @@
 
         </div>
 
-        <br><br>
+        <br>
 
         <button [disabled]="loginform.form.invalid" (click)="login()" class="button">Log In</button>
+        <br> <br>
+        <span>Don't have account? <a href="/registration">Create one</a></span>
+        <br>
+        <span> <a href="/forgot-password">Forgot password?</a></span>
+
         </form>
     </div>
   </div>

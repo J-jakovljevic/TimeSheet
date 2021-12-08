@@ -29,3 +29,10 @@ export interface ChangePassword {
     newPassword: string;
     confirmPassword: string;
 }
+
+export interface ForgotPassword {
+    mailTo: any;
+    mailSubject: string;
+    mailContent: any;
+
+}

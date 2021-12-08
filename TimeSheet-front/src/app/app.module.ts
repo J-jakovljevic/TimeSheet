@@ -14,6 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './component/footer/footer.component';
     NotFoundComponent,
     RegistrationComponent,
     ChangePasswordComponent,
-    FooterComponent
+    FooterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
