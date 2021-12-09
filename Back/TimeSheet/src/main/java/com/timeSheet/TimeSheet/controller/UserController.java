@@ -60,4 +60,9 @@ public class UserController {
 		public ResponseEntity<User> changePassword(@RequestBody PasswordChangeDTO passwordChangedDTO) throws Exception{
 			return userService.changePassword(passwordChangedDTO);
 		}
+	 
+	 @PutMapping(value = "/create-new-password")
+		public ResponseEntity<User> createNewPassword(@RequestBody PasswordChangeDTO passwordChangedDTO) throws Exception{
+			return userService.createNewPassword(passwordChangedDTO);
+		}
 }

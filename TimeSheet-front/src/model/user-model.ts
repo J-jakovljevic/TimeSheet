@@ -36,3 +36,9 @@ export interface ForgotPassword {
     mailContent: any;
 
 }
+
+export interface CreateNewPassword {
+    email: any;
+    newPass: string;
+    confirmPass: string;
+}

@@ -17,7 +17,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private userService: UserService, private router: Router,  private toastrService: ToastrService) { }
     
   ngOnInit(): void {
-    this.returnedUser = {mailTo: '', mailSubject: 'Reset your pasword', mailContent: 'Dear Sir/Madam,\nfor reseting your password please follow the link: http://localhost:4200/login \n\nBest regards,\nVegaIT'};
+    this.returnedUser = {mailTo: '', mailSubject: 'Reset your password', mailContent: 'Dear Sir/Madam,\nfor reseting your password please follow the link: http://localhost:4200/create-new-password \n\nBest regards,\nVegaIT'};
  
   }
 
@@ -29,7 +29,8 @@ export class ForgotPasswordComponent implements OnInit {
         
       } else {
       sessionStorage.setItem('user', this.user?.email);
-      this.router.navigate(['/home']);
+      sessionStorage.removeItem('user');
+      this.router.navigate(['/login']);
       this.toastrService.success("Please check your email!");
       }
     },

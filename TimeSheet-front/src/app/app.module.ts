@@ -15,6 +15,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { CreateNewPasswordComponent } from './component/create-new-password/create-new-password.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
     RegistrationComponent,
     ChangePasswordComponent,
     FooterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    CreateNewPasswordComponent
   ],
   imports: [
     BrowserModule,

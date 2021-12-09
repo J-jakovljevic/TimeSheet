@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ChangePassword, ForgotPassword, LoginUser, RegisterUser } from 'src/model/user-model';
-import { LOGIN_PATH, PASSWORD_USER_PATH, REGISTRATION_PATH } from '../util/path';
+import { ChangePassword, CreateNewPassword, ForgotPassword, LoginUser, RegisterUser } from 'src/model/user-model';
+import { CREATE_NEW_PASSWORD, LOGIN_PATH, PASSWORD_USER_PATH, REGISTRATION_PATH } from '../util/path';
 import {FORGOT_PASSWORD} from '../util/path';
 
 @Injectable({
@@ -27,7 +27,6 @@ export class UserService {
 
   logOut(){
     sessionStorage.removeItem('user');
-  //  sessionStorage.removeItem('role');
   }
 
   changePassword(user: ChangePassword): any{
@@ -37,6 +36,11 @@ export class UserService {
   sendForgotPasswordEmail(user: ForgotPassword): any {
     return this.httpClient.post(FORGOT_PASSWORD, user)
   }
+
+  createNewPassword(user: CreateNewPassword): any {
+    return this.httpClient.put(CREATE_NEW_PASSWORD, user)
+  }
+
 }
 
 

@@ -14,6 +14,7 @@ public interface IUserService {
 	User findByEmail(String email);
 	UserDTO register(UserDTO userDTO) throws Exception;
 	ResponseEntity<User> changePassword(PasswordChangeDTO passwordChangedDTO);
+	ResponseEntity<User> createNewPassword(PasswordChangeDTO passwordChangedDTO);
 	
 
 }

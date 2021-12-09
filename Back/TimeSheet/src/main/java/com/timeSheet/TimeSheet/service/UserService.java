@@ -110,6 +110,24 @@ public class UserService  implements IUserService  {
 		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 		}
 
+	
+	@Override
+	public ResponseEntity<User> createNewPassword(PasswordChangeDTO passwordChangedDTO) {
+		List<User> users = userRepository.findAll();
+		for(User user : users) {
+	
+				if(user.getEmail().equals(passwordChangedDTO.getEmail())) {
+					if(passwordChangedDTO.getNewPassword().equals(passwordChangedDTO.getConfirmPassword())) {
+						user.setPassword(passwordChangedDTO.getNewPassword());
+						userRepository.save(user);
+						return new ResponseEntity<User>(user,HttpStatus.OK);
+					}
+				}
+		
+		}
+		return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+		}
+
 
 
 
