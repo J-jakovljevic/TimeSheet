@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
+import { CreateNewPassword } from 'src/model/user-model';
 
 @Component({
   selector: 'app-create-new-password',
@@ -11,12 +12,13 @@ import { UserService } from 'src/app/services/user.service';
 
 export class CreateNewPasswordComponent implements OnInit {
 
-  returnedUser: any;
+  returnedUser: CreateNewPassword;
 
-  constructor(private userService: UserService, private router: Router, private toastrService: ToastrService) { }
+  constructor(private userService: UserService, private router: Router, private toastrService: ToastrService) {
+    this.returnedUser = { newPassword: '', confirmPassword: '', email: '' };
+   }
 
   ngOnInit(): void {
-    this.returnedUser = { newPassword: '', confirmPassword: '', email: '' };
   }
 
   savePass():void{
@@ -28,6 +30,6 @@ export class CreateNewPasswordComponent implements OnInit {
       
     },
     (err: any) => {
-      this.toastrService.error('Creating password error ' + err.error.message);
+      this.toastrService.error('Creating password error ' + err.error?.message);
     });
   }}

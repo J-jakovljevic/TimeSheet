@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -43,37 +44,37 @@ public class User {
 	@Column(name = "password", nullable = false)
 	private String password;
 	
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private Set<Role> roles = new HashSet<Role>();
     
-    @Column(name = "house_number_as_child", nullable = false)  // What was the house number you lived in as a child?
+    @Column(name = "house_number_as_child")  // What was the house number you lived in as a child?
 	private String house_number;
     
-    @Column(name = "first_job_city", nullable = false)  //In what city was your first full time job?
+    @Column(name = "first_job_city")  //In what city was your first full time job?
 	private String first_job;
     
-    @Column(name = "grandmother_name", nullable = false)  //What is your grandmother name?
+    @Column(name = "grandmother_name")  //What is your grandmother name?
 	private String grandmother_name;
     
-    @Column(name = "first_pet_name", nullable = false)  // What was the name of your first pet?
+    @Column(name = "first_pet_name")  // What was the name of your first pet?
 	private String first_pet;
     
-    @Column(name = "oldest_child_name", nullable = false)  // What is the name of your oldest child?
+    @Column(name = "oldest_child_name")  // What is the name of your oldest child?
    	private String oldest_child;
        
-    @Column(name = "first_concert", nullable = false) // Whose first concert were you at?
+    @Column(name = "first_concert") // Whose first concert were you at?
    	private String first_concert;
        
-    @Column(name = "first_car_model", nullable = false) // What was the model of your first car?
+    @Column(name = "first_car_model") // What was the model of your first car?
    	private String first_car;
        
-    @Column(name = "parents_meet_city", nullable = false) // In which city did your parents meet?
+    @Column(name = "parents_meet_city") // In which city did your parents meet?
    	private String parents_meet; 
        
-    @Column(name = "favorite_place_as_child", nullable = false)  //What was your favorite place to visit as a child?
+    @Column(name = "favorite_place_as_child")  //What was your favorite place to visit as a child?
    	private String favorite_place;
        
-    @Column(name = "dream_job_as_child", nullable = false)  // What was your dream job as a child?
+    @Column(name = "dream_job_as_child")  // What was your dream job as a child?
    	private String dream_job;
        
     public User(String name, String surname, String username, String email, String password, Role role,

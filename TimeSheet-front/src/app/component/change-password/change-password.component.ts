@@ -30,6 +30,6 @@ export class ChangePasswordComponent {
       
     },
     (err: any) => {
-      this.toastrService.error('Changing password error ' + err.error.message);
+      this.toastrService?.error('Changing password error ' + err.error?.message);
     });
   }}

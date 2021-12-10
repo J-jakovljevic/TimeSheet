@@ -46,6 +46,14 @@ public class UserService  implements IUserService  {
 	}
 	
 	@Override
+	public User findByUsername(String username) {
+		User user = userRepository.findByUsername(username);
+	      if (user == null)
+	            throw new NotFoundException("User with email " + username + "doesn't exists");
+	        return user;
+	}
+	
+	@Override
 	public ResponseEntity<UserDTO> login(LoginDTO loginDTO) {
 		List<User> users = userRepository.findAll();
 		for(User user : users) {
@@ -71,6 +79,9 @@ public class UserService  implements IUserService  {
 	@Override
 	public UserDTO register(UserDTO userDTO) throws Exception {
 		if ( userRepository.findByEmail(userDTO.getEmail()) != null) {
+            throw new AlreadyExistsException(String.format("User with email %s, already exists", userDTO.getEmail()));
+	}
+		if ( userRepository.findByUsername(userDTO.getUsername()) != null) {
             throw new AlreadyExistsException(String.format("User with email %s, already exists", userDTO.getEmail()));
 	}
 		

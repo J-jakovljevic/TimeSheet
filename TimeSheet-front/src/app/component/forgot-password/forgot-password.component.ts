@@ -18,7 +18,7 @@ export class ForgotPasswordComponent implements OnInit {
     
   ngOnInit(): void {
     this.returnedUser = {mailTo: '', mailSubject: 'Reset your password', mailContent: 'Dear Sir/Madam,\nfor reseting your password please follow the link: http://localhost:4200/create-new-password \n\nBest regards,\nVegaIT'};
- 
+  
   }
 
   onSubmit(): void {

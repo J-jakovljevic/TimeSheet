@@ -7,6 +7,16 @@ export interface User {
     email: string;
     password: string;
     active: boolean;
+    house_number: string;
+    first_job_city: string;
+    grandmother_name: string;
+    first_pet: string;
+    oldest_child: string;
+    first_concert: string;
+    first_car: string;
+    parents_meet: string;
+    favorite_place: string;
+    dream_job: string;
 }
 
 export interface LoginUser {
@@ -21,24 +31,33 @@ export interface RegisterUser {
     username: string;
     email: string;
     password: string;
-    confirmPassword: string;
+    house_number: string;
+    first_job_city: string;
+    grandmother_name: string;
+    first_pet: string;
+    oldest_child: string;
+    first_concert: string;
+    first_car: string;
+    parents_meet: string;
+    favorite_place: string;
+    dream_job: string;
 }
 
 export interface ChangePassword {
-    email: any;
+    email: string;
     newPassword: string;
     confirmPassword: string;
 }
 
 export interface ForgotPassword {
-    mailTo: any;
+    mailTo: string;
     mailSubject: string;
-    mailContent: any;
+    mailContent: string;
 
 }
 
 export interface CreateNewPassword {
-    email: any;
-    newPass: string;
-    confirmPass: string;
+    email: string;
+    newPassword: string;
+    confirmPassword: string;
 }

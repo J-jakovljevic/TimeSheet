@@ -47,6 +47,61 @@
                 <small class="text-danger">Password is required field.</small>
             </div>
         </div>
+        
+        <hr> 
+        <p><small>Please fill out the form of security questions.<br> Answer a minimum of 5 questions.<br> 
+            <strong>Note:</strong> This will be used if You forget your password. </small> </p>
+        <br>
+
+        <div class="c1">
+            <label for="house_number">1. What was the house number you lived in as a child?</label>
+            <input type="text" [(ngModel)]="user.house_number" placeholder="Enter answer" name="house_number" #house_number="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="first_job_city">2. In which city was your first full time job?</label>
+            <input type="text" [(ngModel)]="user.first_job_city" placeholder="Enter answer" name="first_job_city" #first_job_city="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="first_pet">3. What was the name of your first pet?</label>
+            <input type="text" [(ngModel)]="user.first_pet" placeholder="Enter answer" name="first_pet" #first_pet="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="oldest_child">4. What is the name of your oldest child?</label>
+            <input type="text" [(ngModel)]="user.oldest_child" placeholder="Enter answer" name="oldest_child" #oldest_child="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="first_concert">5. Whose first concert were you at?</label>
+            <input type="text" [(ngModel)]="user.first_concert" placeholder="Enter answer" name="first_concert" #first_concert="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="first_car">6. What was the model of your first car?</label>
+            <input type="text" [(ngModel)]="user.first_car" placeholder="Enter answer" name="first_car" #first_car="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="parents_meet">7. In which city did your parents meet?</label>
+            <input type="text" [(ngModel)]="user.parents_meet" placeholder="Enter answer" name="parents_meet" #parents_meet="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="favorite_place">8. What was your favorite place to visit as a child?</label>
+            <input type="text" [(ngModel)]="user.favorite_place" placeholder="Enter answer" name="favorite_place" #favorite_place="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="dream_job">9. What was your dream job as a child?</label>
+            <input type="text" [(ngModel)]="user.dream_job" placeholder="Enter answer" name="dream_job" #dream_job="ngModel">
+        </div>
+
+        <div class="c1">
+            <label for="grandmother_name">10. What is your grandmother name?</label>
+            <input type="text" [(ngModel)]="user.grandmother_name" placeholder="Enter answer" name="grandmother_name" #grandmother_name="ngModel">
+        </div>
 
         <br>
         
