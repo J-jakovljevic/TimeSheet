@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.timeSheet.TimeSheet.dto.LoginDTO;
 import com.timeSheet.TimeSheet.dto.PasswordChangeDTO;
 import com.timeSheet.TimeSheet.dto.UserDTO;
-import com.timeSheet.TimeSheet.mail.model.Mail;
 import com.timeSheet.TimeSheet.model.User;
 import com.timeSheet.TimeSheet.repository.RoleRepository;
 import com.timeSheet.TimeSheet.repository.UserRepository;
@@ -76,7 +75,9 @@ public class UserService  implements IUserService  {
 	}
 		
 		if(userRepository.findByEmail(userDTO.getEmail()) == null) {
-			User user = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getUsername(), userDTO.getEmail(), userDTO.getPassword(), roleRepository.findById(Long.valueOf(2)).get());
+			User user = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getUsername(), userDTO.getEmail(), userDTO.getPassword(), roleRepository.findById(Long.valueOf(2)).get(), 
+						userDTO.getHouse_number(), userDTO.getFirst_job(), userDTO.getGrandmother_name(), userDTO.getFirst_pet(), userDTO.getOldest_child(), userDTO.getFirst_concert(),
+						userDTO.getFirst_car(), userDTO.getParents_meet(), userDTO.getFavorite_place(), userDTO.getDream_job());
 			user = this.userRepository.save(user);
 			return new UserDTO(user);
 		}
@@ -91,6 +92,7 @@ public class UserService  implements IUserService  {
 			if(passwordChangedDTO.getEmail().contains("@")) {
 				if(user.getEmail().equals(passwordChangedDTO.getEmail())) {
 					if(passwordChangedDTO.getNewPassword().equals(passwordChangedDTO.getConfirmPassword())) {
+						
 						user.setPassword(passwordChangedDTO.getNewPassword());
 						userRepository.save(user);
 						return new ResponseEntity<User>(user,HttpStatus.OK);
