@@ -53,6 +53,7 @@ export interface ForgotPassword {
     mailTo: string;
     mailSubject: string;
     mailContent: string;
+    question: string;
 
 }
 
@@ -60,4 +61,8 @@ export interface CreateNewPassword {
     email: string;
     newPassword: string;
     confirmPassword: string;
+}
+
+export interface GetRandomQuestion {
+    question: string;
 }

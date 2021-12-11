@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,4 +66,16 @@ public class UserController {
 		public ResponseEntity<User> createNewPassword(@RequestBody PasswordChangeDTO passwordChangedDTO) throws Exception{
 			return userService.createNewPassword(passwordChangedDTO);
 		}
+	 
+	 @CrossOrigin(origins = "http://localhost:4200")
+	 @GetMapping(value = "/random-question/{id}", produces = MediaType.APPLICATION_JSON_VALUE) 
+		 public ResponseEntity<String> getRandomQuestion(@PathVariable Long id){
+			return new ResponseEntity<String> (userService.getRandomQuestion(id), HttpStatus.OK);
+	 }
+		 
+	 
+	 @PostMapping(value = "/is-answer-correct/{id}/{answer}")
+	 	public ResponseEntity<Boolean> isAnswerCorrect(@PathVariable Long id, @PathVariable String answer) {
+	 		return new ResponseEntity<Boolean>(userService.isAnswerCorrect(id, answer), HttpStatus.OK);
+	 	}
 }

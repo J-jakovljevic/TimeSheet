@@ -4,4 +4,6 @@ export const REGISTRATION_PATH = BACKEND_PATH + '/user/register';
 export const HOME_PATH =  '/home';
 export const PASSWORD_USER_PATH = BACKEND_PATH + '/user/change-password';
 export const FORGOT_PASSWORD = BACKEND_PATH + '/email/email-sent';
-export const CREATE_NEW_PASSWORD = BACKEND_PATH + '/user/create-new-password'
+export const CREATE_NEW_PASSWORD = BACKEND_PATH + '/user/create-new-password';
+export const GET_RANDOM_QUESTION = BACKEND_PATH + '/user/random-question/1';
+export const IS_ANSWER_CORRECT = BACKEND_PATH + '/user/is-answer-correct/{id}/{answer}';

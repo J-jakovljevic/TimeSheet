@@ -1,7 +1,10 @@
 package com.timeSheet.TimeSheet.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -98,7 +101,87 @@ public class User {
 		this.favorite_place = favorite_place;
 		this.dream_job = dream_job;
 	}
+    
+    public List<String> getQuestions() {
+    	List<String> questions = new ArrayList<String>();
+    	
+    	if(this.house_number != null) {
+    		questions.add(this.house_number);
+    	}
+    	
+    	if(this.first_job != null) {
+    		questions.add(this.first_job);
+    	}
+    	
+    	if(this.grandmother_name != null) {
+    		questions.add(this.grandmother_name);
+    	}
+    	
+    	if(this.first_pet != null) {
+    		questions.add(this.first_pet);
+    	}
+    	
+    	if(this.oldest_child != null) {
+    		questions.add(this.oldest_child);
+    	}
+    	
+    	if(this.first_concert != null) {
+    		questions.add(this.first_concert);
+    	}
+    	
+    	if(this.first_car != null) {
+    		questions.add(this.first_car);
+    	}
+    	
+    	if(this.parents_meet != null) {
+    		questions.add(this.parents_meet);
+    	}
+    	
+    	if(this.favorite_place != null) {
+    		questions.add(this.favorite_place);
+    	}
+    	
+    	if(this.dream_job != null) {
+    		questions.add(this.dream_job);
+    	}
+    	
+    	return questions;
+    	
+    }
 
+    public boolean isAnswerCorrect(String answer) {
+    	if(this.house_number.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.first_job.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.grandmother_name.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.first_pet.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.oldest_child.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.first_concert.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.first_car.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.parents_meet.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.favorite_place.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	if(this.dream_job.toLowerCase().equals(answer.toLowerCase())) {
+    		return true;
+    	} 
+    	return false;
+    }
 
 
 

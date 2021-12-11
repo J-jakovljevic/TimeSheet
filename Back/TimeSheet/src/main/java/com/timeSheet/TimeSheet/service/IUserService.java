@@ -16,6 +16,7 @@ public interface IUserService {
 	ResponseEntity<User> changePassword(PasswordChangeDTO passwordChangedDTO);
 	ResponseEntity<User> createNewPassword(PasswordChangeDTO passwordChangedDTO);
 	User findByUsername(String username);
-	
+	String getRandomQuestion(Long id);
+	boolean isAnswerCorrect(Long id, String answer);
 
 }

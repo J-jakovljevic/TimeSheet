@@ -1,10 +1,12 @@
 package com.timeSheet.TimeSheet.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import com.timeSheet.TimeSheet.dto.LoginDTO;
 import com.timeSheet.TimeSheet.dto.PasswordChangeDTO;
 import com.timeSheet.TimeSheet.dto.UserDTO;
@@ -52,6 +54,8 @@ public class UserService  implements IUserService  {
 	            throw new NotFoundException("User with email " + username + "doesn't exists");
 	        return user;
 	}
+
+	
 	
 	@Override
 	public ResponseEntity<UserDTO> login(LoginDTO loginDTO) {
@@ -75,6 +79,26 @@ public class UserService  implements IUserService  {
 		}
 		return new ResponseEntity<UserDTO>(HttpStatus.BAD_REQUEST);
 		}
+	
+	@Override
+	public String getRandomQuestion(Long id) {
+		User user = userRepository.findById(id).get();
+		List<String> questions = user.getQuestions();
+		
+		int numberOfQuestions = questions.size();
+		int min = 0;
+		int max = numberOfQuestions - 1;
+		
+		return questions.get((int) ((Math.random() * (max - min)) + min));
+		
+	}
+	
+	@Override
+	public boolean isAnswerCorrect(Long id, String answer) {
+		User user = userRepository.findById(id).get();
+		
+		return user.isAnswerCorrect(answer);
+	}
 
 	@Override
 	public UserDTO register(UserDTO userDTO) throws Exception {
